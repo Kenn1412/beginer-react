@@ -1,12 +1,18 @@
 import './App.css';
-import HelloFunctionalComponent from './Component/HelloFunctionalComponent';
-// import DemonStateClass from './Component/DemoStateClassComponent';
-// import HelloClassComponent from './Component/HelloClassComponent';
 import Menu from './components/MenuComponent';
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Navbar, NavbarBrand } from 'reactstrap';
+import { DISHES } from './shared/dishes';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dishes: DISHES
+    };
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -15,7 +21,7 @@ class App extends Component {
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>
         </Navbar>
-        <Menu />
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }
